@@ -1,0 +1,10 @@
+@import '../assets/mixins.scss';
+
+app-root, :host {
+  @include adaptive-prop('padding', 1.5, 4.5);
+  min-height: 100%;
+  background: var(--background-image);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

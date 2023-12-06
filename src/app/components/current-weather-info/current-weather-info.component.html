@@ -1,0 +1,18 @@
+<div class="weather-info">
+  <ul class="weather-info__list">
+    <li *ngFor="let item of currentCondition" class="weather-info__item item">
+      <div class="weather-info__icon">
+        <img src="assets/img/icons/weather-condition-icons/{{item.iconName}}.svg" alt="{{item.iconName}}">
+      </div>
+      <p class="weather-info__text">{{ item.text }}</p>
+      <div *ngIf="item.iconValueName; else value"
+           class="weather-info__icon"
+           [ngStyle]="{ 'transform': 'rotate(' + item.value + 'deg)' }">
+        <img src="assets/img/icons/weather-condition-icons/{{item.iconValueName}}.svg" alt="{{item.iconValueName}}">
+      </div>
+      <ng-template #value>
+        <p class="weather-info__value">{{ item.value }}</p>
+      </ng-template>
+    </li>
+  </ul>
+</div>

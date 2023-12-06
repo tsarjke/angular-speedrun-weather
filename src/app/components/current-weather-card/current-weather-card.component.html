@@ -1,0 +1,28 @@
+<div class="weather-card">
+  <div class="weather-card__content">
+    <header class="weather-card__header header card">
+      <div class="header__date">
+        <h2 class="header__title">{{ data.location.name }} - {{ data.location.country }}</h2>
+        <h4 class="header__subtitle">{{ (data.location | getDate).day | titlecase }}, {{ (data.location | getDate).date }}</h4>
+      </div>
+      <div class="header__time">
+        <h4 class="header__subtitle">{{ (data.location | getDate).time }}</h4>
+      </div>
+    </header>
+    <main class="weather-card__main temp card">
+      <div class="temp__value">
+        <h2 class="temp__current">{{ data.current.temp_c }}ºc</h2>
+        <h2 class="temp__feels-like">feels like {{ data.current.feelslike_c }}ºc</h2>
+      </div>
+      <div class="temp__icon">
+        <img
+          src="assets/img/icons/weather/{{data.current.is_day}}/{{data.current.condition.code}}.png"
+          [alt]="data.current.condition.text">
+        <p>{{ data.current.condition.text }}</p>
+      </div>
+    </main>
+  </div>
+  <div class="weather-card__bg">
+    <img src="assets/img/weather-card-bg/{{data.current.is_day}}.jpg" alt="card-background">
+  </div>
+</div>

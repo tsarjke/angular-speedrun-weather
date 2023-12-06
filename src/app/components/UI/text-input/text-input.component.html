@@ -1,0 +1,29 @@
+<div class="dropdown">
+  <div class="dropdown__form">
+    <label *ngIf="!selectedText; else other_content" for="search-input">
+      <input class="dropdown__input"
+             type="text"
+             id="search-input"
+             #search
+             placeholder="Start typing"
+             [(ngModel)]="inputText"
+             (focus)="handleFocus()"
+             (blur)="handleBlur()"
+             (input)="debouncedUpdate()"/>
+    </label>
+    <ng-template #other_content>
+      <div class="dropdown__input" (click)="deselectItem()">
+        Start typing
+      </div>
+      <span *ngIf="inputText || selectedValue" class="dropdown__reset"
+            (click)="selectItem(undefined)">✕</span>
+    </ng-template>
+  </div>
+  <ul *ngIf="focus" class="dropdown__list">
+    <li class="dropdown__list-item"
+        *ngFor="let item of list | filter: inputText"
+        (mousedown)="selectItem(item)">
+      {{ item.text }}
+    </li>
+  </ul>
+</div>

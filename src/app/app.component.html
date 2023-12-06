@@ -1,0 +1,34 @@
+<app-loader *ngIf="loading; else content" class="loader content"/>
+<ng-template #content>
+  <div class="content" [class]="{'initial': !selectedOption}">
+    <section class="content__main" [class]="{'initial': !selectedOption}">
+      <div *ngIf="!selectedOption" class="content__greeting greeting">
+        <h1 class="greeting__title">
+          Welcome to <span class="greeting__highlight">Weather App</span>
+        </h1>
+        <p class="greeting__subtitle">Choose a location to see the weather forecast</p>
+      </div>
+      <div class="greeting__control" [class]="{'initial': !selectedOption}">
+        <app-text-input [(selected)]="selectedOption"
+                        [list]="locationService.locations | getOptions"
+                        (inputValue)="getLocations($event)"
+                        (select)="getForecast($event)"
+                        (focusChange)="locationService.clearLocations()"/>
+      </div>
+      <div *ngIf="forecastService.forecast as forecast" class="content__forecast">
+        <app-current-weather-card [data]="forecast"/>
+      </div>
+    </section>
+    <div class="content__info" *ngIf="forecastService.forecast as forecast">
+      <section>
+        <app-current-weather-info [data]="forecast.current"/>
+      </section>
+      <section>
+        <app-forecast-card [data]="forecast.forecast.forecastday"/>
+      </section>
+    </div>
+  </div>
+</ng-template>
+<footer>
+  <app-footer/>
+</footer>

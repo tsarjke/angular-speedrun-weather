@@ -1,0 +1,73 @@
+@import '../../../../assets/mixins.scss';
+
+.dropdown {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+
+  &__form {
+    position: relative;
+  }
+
+  &__input {
+    @include adaptive-prop('font-size', 1.6, 2);
+    cursor: text;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    background: var(--background-color);
+    color: var(--minor-color);
+    line-height: 2.2rem;
+    text-transform: capitalize;
+  }
+
+  &__reset {
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    transform: translateY(-50%);
+    color: var(--color);
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color);
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    background: var(--background-second-color);
+
+    &:first-child {
+      border-radius: 0.8rem 0.8rem 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 0.8rem 0.8rem;
+    }
+
+    &:only-child {
+      border-radius: 0.8rem;
+    }
+
+    &:hover {
+      background: var(--background-color);
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #1E1E29;
+    }
+  }
+}

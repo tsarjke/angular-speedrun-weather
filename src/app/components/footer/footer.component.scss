@@ -1,0 +1,32 @@
+.footer {
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    @media (min-width: 1023px) {
+      gap: 3rem;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-width: 1023px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+}

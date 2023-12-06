@@ -1,0 +1,35 @@
+@import '../../../assets/mixins.scss';
+
+.weather-info {
+  width: 100%;
+
+  &__item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    @include adaptive-prop('padding', 1, 2.5);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--background-second-color);
+    }
+  }
+
+  &__icon {
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__text {
+    flex: 1 0 auto;
+    color: var(--info-second-color);
+    @include adaptive-prop('font-size', 1.4, 2);
+    font-weight: 700;
+  }
+
+  &__value {
+    color: var(--info-color);
+    @include adaptive-prop('font-size', 1.6, 2.8);
+  }
+}

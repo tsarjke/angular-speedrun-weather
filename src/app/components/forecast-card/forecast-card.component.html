@@ -1,0 +1,14 @@
+<div class="forecast-card">
+  <ul class="forecast-card__list">
+    <li *ngFor="let forecast of data" class="forecast-card__item">
+      <p class="forecast-card__weekday">{{ forecast.date_epoch | shortWeekDay }}</p>
+      <div class="forecast-card__icon">
+        <img src="assets/img/icons/weather/1/{{forecast.day.condition.code}}.png" alt="">
+      </div>
+      <div class="forecast-card__temp">
+        <p class="forecast-card__temp_max">{{forecast.day.maxtemp_c}}ºc</p>
+        <p class="forecast-card__temp_min">{{forecast.day.mintemp_c}}ºc</p>
+      </div>
+    </li>
+  </ul>
+</div>

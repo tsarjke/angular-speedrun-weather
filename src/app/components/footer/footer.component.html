@@ -1,0 +1,9 @@
+<div class="footer">
+  <ul class="footer__list">
+    <li *ngFor="let item of links" class="footer__item">
+      <a [href]="item.link" target="_blank" class="footer__link">
+        <img [src]="item.iconPath" [alt]="item.name">
+      </a>
+    </li>
+  </ul>
+</div>
